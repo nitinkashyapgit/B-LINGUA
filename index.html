@@ -5,165 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
-            background: radial-gradient(circle at top, #e0e7ff, #f8fafc);
-            color: #0f172a;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f1f5f9;
         }
 
-        /* ===== HEADER ===== */
+        /* HEADER */
         header {
             text-align: center;
-            padding: 55px 20px;
-            background: linear-gradient(270deg, #4338ca, #6366f1, #818cf8);
-            background-size: 400% 400%;
-            animation: gradientMove 8s ease infinite;
+            padding: 30px 15px;
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
             color: #fff;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.45);
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         header h1 {
             margin: 0;
-            font-size: 46px;
-            letter-spacing: 3px;
+            font-size: 38px;
+            letter-spacing: 2px;
         }
 
         header h3 {
-            margin-top: 10px;
-            font-weight: 300;
-            opacity: 0.95;
+            margin-top: 8px;
+            font-weight: 400;
         }
 
-        /* ===== LAYOUT ===== */
+        /* LAYOUT */
         .container {
             display: flex;
-            max-width: 1500px;
-            margin: auto;
-            padding: 30px;
-            gap: 25px;
+            min-height: calc(100vh - 120px);
         }
 
-        /* ===== SIDEBAR ===== */
+        /* SIDEBAR */
         .sidebar {
             width: 35%;
-            padding: 30px;
-            background: rgba(255,255,255,0.75);
-            backdrop-filter: blur(18px);
-            border-radius: 24px;
-            height: calc(100vh - 200px);
+            padding: 25px;
+            background: #ffffff;
+            border-right: 1px solid #e5e7eb;
             overflow-y: auto;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.18);
         }
 
         .sidebar h2 {
-            margin-top: 0;
-            color: #4338ca;
+            color: #4f46e5;
+            margin-bottom: 10px;
         }
 
-        /* ===== WORD CARD ===== */
+        /* WORD CARD */
         .word {
-            position: relative;
-            background: linear-gradient(135deg, #ffffff, #f9fafb);
-            padding: 22px;
-            border-radius: 20px;
-            margin-bottom: 22px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
-            transition: all 0.4s ease;
-            overflow: hidden;
-        }
-
-        .word::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent, rgba(99,102,241,0.15), transparent);
-            opacity: 0;
-            transition: 0.4s;
-        }
-
-        .word:hover::before {
-            opacity: 1;
+            background: #f9fafb;
+            padding: 15px 18px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
         }
 
         .word:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 30px 70px rgba(79,70,229,0.4);
+            transform: translateY(-3px);
         }
 
         .word h3 {
-            margin: 0 0 8px;
-            font-size: 19px;
-            color: #020617;
+            margin: 0 0 5px;
+            color: #1f2933;
+            font-size: 17px;
         }
 
         .example {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #475569;
+            margin-top: 6px;
+            color: #555;
+            font-style: italic;
         }
 
-        /* ===== CONTENT ===== */
+        /* CONTENT */
         .content {
             width: 65%;
-            padding: 40px;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            box-shadow: 0 35px 90px rgba(0,0,0,0.2);
+            padding: 35px;
         }
 
         .content h2 {
-            margin-top: 0;
-            font-size: 30px;
-            color: #4338ca;
+            color: #4f46e5;
+            margin-bottom: 5px;
         }
 
         .content h3 {
-            color: #6366f1;
-            margin-top: 10px;
+            color: #111827;
+            margin-top: 0;
         }
 
         .content p {
-            margin-top: 25px;
-            font-size: 18px;
-            line-height: 1.9;
-            padding: 30px;
-            border-radius: 22px;
-            background: linear-gradient(135deg, #eef2ff, #ffffff);
-            box-shadow: inset 0 0 0 2px rgba(99,102,241,0.15);
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 14px;
+            line-height: 1.7;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            color: #374151;
         }
 
-        /* ===== SCROLLBAR ===== */
-        .sidebar::-webkit-scrollbar {
-            width: 10px;
-        }
-        .sidebar::-webkit-scrollbar-thumb {
-            background: linear-gradient(#6366f1, #818cf8);
-            border-radius: 10px;
-        }
-
-        /* ===== MOBILE ===== */
-        @media (max-width: 900px) {
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
             .container {
                 flex-direction: column;
             }
             .sidebar, .content {
                 width: 100%;
-                height: auto;
             }
             header h1 {
-                font-size: 34px;
+                font-size: 30px;
             }
         }
     </style>
@@ -178,7 +126,7 @@
 
 <div class="container">
 
-    <!-- LEFT -->
+    <!-- LEFT SIDE DAILY UPDATE -->
     <div class="sidebar">
         <h2>Daily Vocabulary</h2>
         <h2>15-12-2025</h2>
@@ -200,15 +148,76 @@
             👉 Hindi: Desh ke logon ka record.
             <div class="example">📘 Example: The government conducts a census every ten years.</div>
         </div>
+
+        <div class="word">
+            <h3>4. Unnecessarily – फ़ालतू में</h3>
+            👉 Hindi: Bina wajah ke.
+            <div class="example">📘 Example: He argued unnecessarily with his teacher.</div>
+        </div>
+
+        <div class="word">
+            <h3>5. Thereafter – उसके बाद</h3>
+            👉 Hindi: Us samay ke baad.
+            <div class="example">📘 Example: He finished his studies and thereafter started working.</div>
+        </div>
+
+        <div class="word">
+            <h3>6. Hereafter – आगे से</h3>
+            👉 Hindi: Future me.
+            <div class="example">📘 Example: Hereafter, I will never be late to class.</div>
+        </div>
+
+        <div class="word">
+            <h3>7. Mark my words – मेरी बात याद रखना</h3>
+            👉 Hindi: Pakki baat kehna.
+            <div class="example">📘 Example: Mark my words, you’ll regret this decision.</div>
+        </div>
+
+        <div class="word">
+            <h3>8. It’s out of the question – मुमकिन नहीं</h3>
+            👉 Hindi: Bilkul possible nahi.
+            <div class="example">📘 Example: Going out in this rain is out of the question.</div>
+        </div>
+
+        <div class="word">
+            <h3>9. There are no two ways about it</h3>
+            👉 Hindi: Koi doubt nahi.
+            <div class="example">📘 Example: Honesty is the best policy.</div>
+        </div>
+
+        <div class="word">
+            <h3>10. Does it make any difference?</h3>
+            👉 Hindi: Kya fark padta hai?
+            <div class="example">📘 Example: Does it make any difference if I come late?</div>
+        </div>
+
+        <div class="word">
+            <h3>11. It makes a bit difference</h3>
+            👉 Hindi: Thoda fark padta hai.
+            <div class="example">📘 Example: It makes a bit difference when you speak politely.</div>
+        </div>
+
+        <div class="word">
+            <h3>12. It makes no difference</h3>
+            👉 Hindi: Koi fark nahi.
+            <div class="example">📘 Example: It makes no difference whether you come or not.</div>
+        </div>
+
+        <div class="word">
+            <h3>13. It matters a lot</h3>
+            👉 Hindi: Bahut important.
+            <div class="example">📘 Example: Your opinion matters a lot to me.</div>
+        </div>
     </div>
 
-    <!-- RIGHT -->
+    <!-- RIGHT SIDE CONTENT -->
     <div class="content">
         <h2>Coaching Updates</h2>
-        <h3>Daily Vocabulary with Meaning</h3>
+        <h3>Daily Vocabulary with Meaning.</h3>
 
         <p>
-            This section is designed to help students improve their English vocabulary by providing daily words along with their meanings, correct usage, and practical examples. It also includes important class-related academic updates, ensuring that students stay informed and continue learning on a regular basis.
+            This section is designed to help students improve their English vocabulary by providing daily words along with their meanings, correct usage, and practical examples.
+            It also includes important class-related academic updates, ensuring that students stay informed and continue learning on a regular basis.
         </p>
     </div>
 
@@ -223,165 +232,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
-            background: radial-gradient(circle at top, #e0e7ff, #f8fafc);
-            color: #0f172a;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f1f5f9;
         }
 
-        /* ===== HEADER ===== */
+        /* HEADER */
         header {
             text-align: center;
-            padding: 55px 20px;
-            background: linear-gradient(270deg, #4338ca, #6366f1, #818cf8);
-            background-size: 400% 400%;
-            animation: gradientMove 8s ease infinite;
+            padding: 30px 15px;
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
             color: #fff;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.45);
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         header h1 {
             margin: 0;
-            font-size: 46px;
-            letter-spacing: 3px;
+            font-size: 38px;
+            letter-spacing: 2px;
         }
 
         header h3 {
-            margin-top: 10px;
-            font-weight: 300;
-            opacity: 0.95;
+            margin-top: 8px;
+            font-weight: 400;
         }
 
-        /* ===== LAYOUT ===== */
+        /* LAYOUT */
         .container {
             display: flex;
-            max-width: 1500px;
-            margin: auto;
-            padding: 30px;
-            gap: 25px;
+            min-height: calc(100vh - 120px);
         }
 
-        /* ===== SIDEBAR ===== */
+        /* SIDEBAR */
         .sidebar {
             width: 35%;
-            padding: 30px;
-            background: rgba(255,255,255,0.75);
-            backdrop-filter: blur(18px);
-            border-radius: 24px;
-            height: calc(100vh - 200px);
+            padding: 25px;
+            background: #ffffff;
+            border-right: 1px solid #e5e7eb;
             overflow-y: auto;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.18);
         }
 
         .sidebar h2 {
-            margin-top: 0;
-            color: #4338ca;
+            color: #4f46e5;
+            margin-bottom: 10px;
         }
 
-        /* ===== WORD CARD ===== */
+        /* WORD CARD */
         .word {
-            position: relative;
-            background: linear-gradient(135deg, #ffffff, #f9fafb);
-            padding: 22px;
-            border-radius: 20px;
-            margin-bottom: 22px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
-            transition: all 0.4s ease;
-            overflow: hidden;
-        }
-
-        .word::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent, rgba(99,102,241,0.15), transparent);
-            opacity: 0;
-            transition: 0.4s;
-        }
-
-        .word:hover::before {
-            opacity: 1;
+            background: #f9fafb;
+            padding: 15px 18px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
         }
 
         .word:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 30px 70px rgba(79,70,229,0.4);
+            transform: translateY(-3px);
         }
 
         .word h3 {
-            margin: 0 0 8px;
-            font-size: 19px;
-            color: #020617;
+            margin: 0 0 5px;
+            color: #1f2933;
+            font-size: 17px;
         }
 
         .example {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #475569;
+            margin-top: 6px;
+            color: #555;
+            font-style: italic;
         }
 
-        /* ===== CONTENT ===== */
+        /* CONTENT */
         .content {
             width: 65%;
-            padding: 40px;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            box-shadow: 0 35px 90px rgba(0,0,0,0.2);
+            padding: 35px;
         }
 
         .content h2 {
-            margin-top: 0;
-            font-size: 30px;
-            color: #4338ca;
+            color: #4f46e5;
+            margin-bottom: 5px;
         }
 
         .content h3 {
-            color: #6366f1;
-            margin-top: 10px;
+            color: #111827;
+            margin-top: 0;
         }
 
         .content p {
-            margin-top: 25px;
-            font-size: 18px;
-            line-height: 1.9;
-            padding: 30px;
-            border-radius: 22px;
-            background: linear-gradient(135deg, #eef2ff, #ffffff);
-            box-shadow: inset 0 0 0 2px rgba(99,102,241,0.15);
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 14px;
+            line-height: 1.7;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            color: #374151;
         }
 
-        /* ===== SCROLLBAR ===== */
-        .sidebar::-webkit-scrollbar {
-            width: 10px;
-        }
-        .sidebar::-webkit-scrollbar-thumb {
-            background: linear-gradient(#6366f1, #818cf8);
-            border-radius: 10px;
-        }
-
-        /* ===== MOBILE ===== */
-        @media (max-width: 900px) {
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
             .container {
                 flex-direction: column;
             }
             .sidebar, .content {
                 width: 100%;
-                height: auto;
             }
             header h1 {
-                font-size: 34px;
+                font-size: 30px;
             }
         }
     </style>
@@ -396,7 +353,7 @@
 
 <div class="container">
 
-    <!-- LEFT -->
+    <!-- LEFT SIDE DAILY UPDATE -->
     <div class="sidebar">
         <h2>Daily Vocabulary</h2>
         <h2>15-12-2025</h2>
@@ -418,15 +375,76 @@
             👉 Hindi: Desh ke logon ka record.
             <div class="example">📘 Example: The government conducts a census every ten years.</div>
         </div>
+
+        <div class="word">
+            <h3>4. Unnecessarily – फ़ालतू में</h3>
+            👉 Hindi: Bina wajah ke.
+            <div class="example">📘 Example: He argued unnecessarily with his teacher.</div>
+        </div>
+
+        <div class="word">
+            <h3>5. Thereafter – उसके बाद</h3>
+            👉 Hindi: Us samay ke baad.
+            <div class="example">📘 Example: He finished his studies and thereafter started working.</div>
+        </div>
+
+        <div class="word">
+            <h3>6. Hereafter – आगे से</h3>
+            👉 Hindi: Future me.
+            <div class="example">📘 Example: Hereafter, I will never be late to class.</div>
+        </div>
+
+        <div class="word">
+            <h3>7. Mark my words – मेरी बात याद रखना</h3>
+            👉 Hindi: Pakki baat kehna.
+            <div class="example">📘 Example: Mark my words, you’ll regret this decision.</div>
+        </div>
+
+        <div class="word">
+            <h3>8. It’s out of the question – मुमकिन नहीं</h3>
+            👉 Hindi: Bilkul possible nahi.
+            <div class="example">📘 Example: Going out in this rain is out of the question.</div>
+        </div>
+
+        <div class="word">
+            <h3>9. There are no two ways about it</h3>
+            👉 Hindi: Koi doubt nahi.
+            <div class="example">📘 Example: Honesty is the best policy.</div>
+        </div>
+
+        <div class="word">
+            <h3>10. Does it make any difference?</h3>
+            👉 Hindi: Kya fark padta hai?
+            <div class="example">📘 Example: Does it make any difference if I come late?</div>
+        </div>
+
+        <div class="word">
+            <h3>11. It makes a bit difference</h3>
+            👉 Hindi: Thoda fark padta hai.
+            <div class="example">📘 Example: It makes a bit difference when you speak politely.</div>
+        </div>
+
+        <div class="word">
+            <h3>12. It makes no difference</h3>
+            👉 Hindi: Koi fark nahi.
+            <div class="example">📘 Example: It makes no difference whether you come or not.</div>
+        </div>
+
+        <div class="word">
+            <h3>13. It matters a lot</h3>
+            👉 Hindi: Bahut important.
+            <div class="example">📘 Example: Your opinion matters a lot to me.</div>
+        </div>
     </div>
 
-    <!-- RIGHT -->
+    <!-- RIGHT SIDE CONTENT -->
     <div class="content">
         <h2>Coaching Updates</h2>
-        <h3>Daily Vocabulary with Meaning</h3>
+        <h3>Daily Vocabulary with Meaning.</h3>
 
         <p>
-            This section is designed to help students improve their English vocabulary by providing daily words along with their meanings, correct usage, and practical examples. It also includes important class-related academic updates, ensuring that students stay informed and continue learning on a regular basis.
+            This section is designed to help students improve their English vocabulary by providing daily words along with their meanings, correct usage, and practical examples.
+            It also includes important class-related academic updates, ensuring that students stay informed and continue learning on a regular basis.
         </p>
     </div>
 
